@@ -8,6 +8,10 @@ Unreleased
 -   Drop support for Python 2.7 and 3.5.
 -   Bump MarkupSafe dependency to >=1.1.
 -   Bump Babel optional dependency to >=2.1.
+-   Rather than checking for attributes, ``is sequence`` tests against
+    :class:`~collections.abc.Sequence`, ``is iterable`` tests against
+    :class:`~collections.abc.Iterable`, and ``is escaped`` tests against
+    :class:`~markupsafe.Markup`.
 
 
 Version 2.11.0

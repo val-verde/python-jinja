@@ -4,6 +4,8 @@ import decimal
 import operator
 import re
 
+from markupsafe import Markup
+
 from ._compat import abc
 from ._compat import integer_types
 from ._compat import string_types
@@ -131,12 +133,7 @@ def test_sequence(value):
     """Return true if the variable is a sequence. Sequences are variables
     that are iterable.
     """
-    try:
-        len(value)
-        value.__getitem__
-    except Exception:
-        return False
-    return True
+    return isinstance(value, abc.Sequence)
 
 
 def test_sameas(value, other):
@@ -154,16 +151,12 @@ def test_sameas(value, other):
 
 def test_iterable(value):
     """Check if it's possible to iterate over an object."""
-    try:
-        iter(value)
-    except TypeError:
-        return False
-    return True
+    return isinstance(value, abc.Iterable)
 
 
 def test_escaped(value):
     """Check if the value is escaped."""
-    return hasattr(value, "__html__")
+    return isinstance(value, Markup)
 
 
 def test_in(value, seq):

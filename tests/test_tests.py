@@ -86,7 +86,6 @@ class TestTestsCase(object):
             ('"foo" is sequence', True),
             ("[] is sequence", True),
             ("[1, 2, 3] is sequence", True),
-            ("{} is sequence", True),
             ("none is mapping", False),
             ("false is mapping", False),
             ("42 is mapping", False),
